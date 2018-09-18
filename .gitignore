@@ -22,3 +22,4 @@ yarn-error.log*
 .gitsecret/keys/random_seed
 
 secrets/config.js
+.firebase/
