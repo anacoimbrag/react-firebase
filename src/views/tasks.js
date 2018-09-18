@@ -7,17 +7,27 @@ import { Input } from '../components/input/input';
 import Task from './task';
 
 import '../components/container/container.css';
+import { logout } from '../firebase/auth';
 
 class Tasks extends Component {
     state = {
         tasks: []
     }
 
+    doLogout = async () => {
+        try {
+            await logout()
+        } catch (e) {
+            console.log(e)
+            alert('Não foi possível sair do sistema.')
+        }
+    }
+
     render() {
         return (
             <div>
                 <header>
-                    <Link className="btn btn-only-text" to="/login" value="Sair">Sair</Link>
+                    <OnlyTextButton value="Sair" onClick={this.doLogout}/>
                     <h1>Tarefas</h1>
                 </header>
                 <main>
