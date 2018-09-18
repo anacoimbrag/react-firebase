@@ -1,0 +1,15 @@
+.vertical {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.list-none {
+    text-align: start;
+    padding-left: 0;
+    margin: 0 20px;
+}
+
+.empty-list {
+    margin: 20px;
+}

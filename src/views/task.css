@@ -1,0 +1,26 @@
+p {
+    margin: 0;
+}
+
+input[type=checkbox] {
+    margin-right: 12px;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.task-name {
+    font-size: 16px;
+    font-weight: 400;
+    color: darkblue;
+}
+
+.task-date {
+    font-size: 12px;
+    font-weight: 200;
+    color: darkgray;
+    margin-left: 28px;
+}
