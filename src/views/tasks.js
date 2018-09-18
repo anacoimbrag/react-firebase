@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Submit, OnlyTextButton } from '../components/button/button';
 import { VerticalContainer, ListContainer } from '../components/container/container';
 import { VerticalForm, Input } from '../components/input/input';
@@ -15,7 +17,7 @@ class Tasks extends Component {
         return (
             <div>
                 <header>
-                    <OnlyTextButton value="Sair" />
+                    <Link className="btn btn-only-text" to="/login" value="Sair">Sair</Link>
                     <h1>Tarefas</h1>
                 </header>
                 <main>
