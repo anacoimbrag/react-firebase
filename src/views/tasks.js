@@ -26,6 +26,7 @@ class Tasks extends Component {
     doLogout = async () => {
         try {
             await logout()
+            this.props.history.push('/login')
         } catch (e) {
             console.log(e)
             alert('Não foi possível sair do sistema.')
