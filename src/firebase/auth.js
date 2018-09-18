@@ -1,5 +1,4 @@
-import { auth } from "../../node_modules/firebase";
-import { firebaseProvider, googleProvider } from "./firebase";
+import { auth, facebookProvider, googleProvider } from "./firebase";
 
 export const login = async ({ email, password }) => {
     const userCredentials = await auth.signInWithEmailAndPassword(email, password)
@@ -7,12 +6,12 @@ export const login = async ({ email, password }) => {
 }
 
 export const facebookLogin = async () => {
-    const userCredentials = await auth().signInWithPopup(firebaseProvider)
+    const userCredentials = await auth.signInWithPopup(facebookProvider)
     return userCredentials.user
 }
 
 export const googleLogin = async () => {
-    const userCredentials = await auth().signInWithPopup(googleProvider)
+    const userCredentials = await auth.signInWithPopup(googleProvider)
     return userCredentials.user
 }
 

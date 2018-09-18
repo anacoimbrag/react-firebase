@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Submit, OnlyTextButton } from '../components/button/button';
 import { VerticalContainer, ListContainer } from '../components/container/container';
-import { VerticalForm, Input } from '../components/input/input';
+import { Input } from '../components/input/input';
 import Task from './task';
 
 import '../components/container/container.css';
@@ -22,11 +22,11 @@ class Tasks extends Component {
                 </header>
                 <main>
                     <VerticalContainer>
-                        <VerticalForm>
+                        <VerticalContainer>
                             <Input type="text" placeholder="Tarefa" />
                             <Input type="file" placeholder="Escolha o arquivo" />
                             <Submit value="Criar" />
-                        </VerticalForm>
+                        </VerticalContainer>
                         {
                             this.state.tasks.length === 0 &&
                             <div className="empty-list">Não existe nenhuma tarefa cadastrada.</div>

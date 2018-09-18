@@ -5,6 +5,7 @@
     margin: 4px 0;
     font-weight: 300;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .btn-submit {
@@ -26,6 +27,5 @@
     background-color: transparent;
     color: darkred;
     font-weight: 300;
-    cursor: pointer;
     text-decoration: none;
 }
