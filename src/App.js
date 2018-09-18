@@ -6,6 +6,7 @@ import Login from './views/login';
 import Tasks from './views/tasks';
 import Register from './views/register';
 import { auth } from './firebase/firebase';
+import { requestPermission, getToken } from './firebase/messaging';
 
 const PrivateRoute = ({ component: Component, ...rest, user }) => (
   <Route {...rest} render={(props) => (
@@ -29,6 +30,20 @@ class App extends Component {
     auth.onAuthStateChanged(user => {
       this.setState({ loading: false, user })
     })
+  }
+
+  componentDidMount() {
+    this.notificationPermition()
+  }
+
+  notificationPermition = async () => {
+    try {
+      await requestPermission()
+      const token = await getToken()
+      console.log(token)
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   render() {
