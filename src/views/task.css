@@ -6,10 +6,17 @@ input[type=checkbox] {
     margin-right: 12px;
 }
 
+hr {
+    border-color: lightgrey;
+    border-width: 0.6px;
+}
+
 .task-container {
     display: flex;
-    flex-direction: column;
     margin-bottom: 12px;
+    margin-top: 12px;
+    justify-content: space-between;
+    min-height: 50px;
 }
 
 .task-name {
@@ -23,4 +30,11 @@ input[type=checkbox] {
     font-weight: 200;
     color: darkgray;
     margin-left: 28px;
+}
+
+.task-image {
+    max-width: 50px;
+    max-height: 50px;
+    margin: 0 12px;
+    border-radius: 6px;
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Submit, OnlyTextButton } from '../components/button/button';
 import { VerticalContainer, ListContainer } from '../components/container/container';
@@ -9,10 +8,12 @@ import Task from './task';
 import '../components/container/container.css';
 import { logout } from '../firebase/auth';
 import { observeTasks, createTask } from '../firebase/firestore';
+import { uploadFile } from '../firebase/storage';
 
 class Tasks extends Component {
     state = {
         newTask: undefined,
+        file: undefined,
         tasks: []
     }
 
@@ -36,6 +37,12 @@ class Tasks extends Component {
         this.setState({ newTask: value })
     }
 
+    onChangeFile = e => {
+        const file = e.target.files[0];
+        console.log(file)
+        this.setState({ file })
+    }
+
     addTask = async () => {
         try {
             const task = {
@@ -43,7 +50,8 @@ class Tasks extends Component {
                 date: new Date(),
                 pending: true
             }
-            await createTask(task)
+            const doc = await createTask(task)
+            if (this.state.file) await uploadFile(doc.id, this.state.file)
         } catch (e) {
             console.log(e)
             alert('Não foi possível criar nova tarefa.')
@@ -61,7 +69,7 @@ class Tasks extends Component {
                     <VerticalContainer>
                         <VerticalContainer>
                             <Input type="text" placeholder="Tarefa" onChange={this.onChangeTask} />
-                            <Input type="file" placeholder="Escolha o arquivo" />
+                            <Input type="file" accept="image/jpeg" onChange={this.onChangeFile} />
                             <Submit value="Criar" onClick={this.addTask} />
                         </VerticalContainer>
                         {
